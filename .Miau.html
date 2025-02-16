@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiauAlerta</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffcc00;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 45px;
+            color: #ff0000;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px #ff0000;
+        }
+        p {
+            font-size: 22px;
+            margin: 20px 0;
+        }
+        .alert {
+            background: #ff0000;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>MiauAlerta</h1>
+    <p class="alert">Un evento de furros te va aducir</p>
+    <p>Tiempo estimado de que te pillen y te vuelven furro <span id="countdown">10</span> segundos...</p>
+    
+    <script>
+        let count = 10;
+        const countdownElement = document.getElementById('countdown');
+        const interval = setInterval(() => {
+            count--;
+            countdownElement.textContent = count;
+            if (count === 0) {
+                clearInterval(interval);
+                document.body.innerHTML = '<h1 class="alert">Maricon El que lo lea</h1>';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
